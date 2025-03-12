@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="./style2.css">
+
+<% include("../layouts/header.ejs") %>
+<div class="form-container" style="background-color: rgb(207, 245, 233);">
+<h1>Verification</h1>
+<br><br>
+
+
+<%
+  if(typeof message !== "undefined"){
+    %>
+    <h4 style="color:rgb(80, 206, 80);"><%= message %></h4>
+    <%
+}
+
+%>
+
+<br>
+
+<form action="" method="post">
+    <div class="form-group">
+    <input type="email" name="email" required placeholder="Enter email">
+    <br>
+  </div>
+    <button class="btn" type="submit" value="Send verification link">Send Verification Link</button>
+
+
+
+
+
+
+</form>
+</div>
+
+<% include("../layouts/footer.ejs") %>

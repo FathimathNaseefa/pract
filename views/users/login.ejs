@@ -1,0 +1,44 @@
+<link href="./style1.css" rel="stylesheet">
+
+<% include("../layouts/header.ejs") %>
+
+<div class="login-page">
+  
+  <div class="form">
+    <h1>Login</h1>
+  <%
+  if(typeof message !== "undefined"){
+    %>
+    <h4 style="color:rgb(226, 13, 30)"><%= message %></h4>
+    <%
+}
+
+%>
+
+  
+    
+      <form action="/login" class="login-form" method="post">
+
+        <input type="email" name="email" required placeholder="Enter email">
+        <br><br>
+        <input type="password" name="password" required placeholder="Enter password">
+        <br><br>
+        <!-- <input type="submit" value="Login"> -->
+        <button style="background-color:green;border-radius: 5px ;">login</button>
+        <br><br>
+    
+    
+        <a style="text-decoration: none;font-family: Arial, Helvetica, sans-serif;color: black;" href="/forget">Forget Password</a>
+        <br><br>
+
+  
+         <button style="background-color:green;border-radius: 20px;width:105px" type="submit" ><a style="text-decoration: none;font-family:Georgia, 'Times New Roman', Times, serif;color: rgb(245, 242, 242);" href="/register">Register</a></button>
+      
+        <br><br>
+    
+        <a style="text-decoration: none;font-family:Verdana, Geneva, Tahoma, sans-serif;color: black;" href="/verification">Verify Mail</a>
+        <br><br>
+    </form>
+  </div>
+</div>
+<% include("../layouts/footer.ejs") %>

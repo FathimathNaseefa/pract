@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="./style3.css">
+
+<% include("../layouts/header.ejs") %>
+
+<div class="form-container" style="background-color: rgb(211, 231, 225)">
+    <h2>Edit profile</h2>
+
+
+<img src="userImages/<%= user.image %>" width="100px" height="100px" style="margin-bottom: 20px;margin-left: 150px;" alt="<%= user.image %>">
+
+<form action="" method="post" enctype="multipart/form-data">
+    
+    
+    <input type="hidden" name="user_id" value="<%= user._id %>">
+    <br><br>
+    <label for="name">Name: </label>
+    <input type="text" name="name" value="<%= user.name %>" placeholder="Enter your name" required>
+    <br><br>
+    <label for="email">Email: </label>
+    <input type="email" name="email" value="<%= user.email %>" placeholder="Enter your email" required>
+    <br><br>
+    <label for="mobile">Mobile no.: </label>
+    <input type="text" name="mno" value="<%= user.mobile %>"placeholder="Enter Mobile" required>
+    <br><br>
+    <input type="file" name="image" >
+    <br><br>
+    <button class="btn" type="submit" value="update profile">Update profile</button>
+</form>
+</div>
+
+
+<% include("../layouts/footer.ejs") %>

@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="../style2.css">
+
+<% include("../layouts/header.ejs") %>
+
+<div class="form-container">
+
+<h1>Reset Your Password</h1>
+<br><br>
+<p>Enter your email address below and we'll send you  instructions to reset your password</p>
+<br><br>
+
+
+<%
+  if(typeof message !== "undefined"){
+    %>
+    <p  style="color:rgb(5, 75, 5);"><%= message %></p>
+    <%
+}
+
+%>
+<br><br>
+
+<form action="" method="post">
+    <div class="form-group">
+      <label for="email">Email address</label>
+    <input type="email" name="email" required placeholder="Enter email">
+    <br><br>
+  </div>
+    <button type="submit" value="Send Reset Link" style="background-color: rgb(65, 21, 223);width:345px ;">Send Reset Link</button>
+
+
+
+
+
+
+</form>
+</div>
+
+
+<% include("../layouts/footer.ejs") %>

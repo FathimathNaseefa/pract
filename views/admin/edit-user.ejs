@@ -1,0 +1,38 @@
+
+<% include("../layouts/header.ejs") %>
+<link rel="stylesheet" href="../style2.css" >
+<div class="form-container">
+<h1>Edit User</h1>
+<br>
+
+
+<br>
+<form action="" method="POST">
+    <label for="name">Name:</label>
+    <input type="name" name="name" required value='<%= user.name %>' placeholder="Enter name">
+    <br><br>
+     <label for="email">Email:</label>
+    <input type="email" name="email" required value='<%= user.email %>' placeholder="Enter email">
+    <br><br>
+    <label for="mno">Mobile:</label>
+    <input type="text" name="mno" required value='<%= user.mobile %>' placeholder="Enter mobile">
+    <br><br>
+    <label>Verified</label>
+    <input type="radio" name="verify" value="1" <% if(user.is_verified == 1){ %> checked <% } %> >
+    <label>Unverified</label>
+    <input type="radio" name="verify" value="0" <% if(user.is_verified == 0){ %> checked <% } %> >
+    <br><br>
+    <input type="hidden" name="id" value='<%= user._id %>'>
+    
+    <button class="btn" type="submit" value="Login">Login</button>
+    <br><br>
+</form>
+
+<button class="btn"><a href="/admin/">Go Dashboard</a></button>
+</div>
+
+
+
+
+
+<% include("../layouts/footer.ejs") %>

@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="./style3.css">
+<% include("../layouts/header.ejs") %>
+
+
+<div class="form-container" style="background-color: rgb(211, 231, 225)">
+    
+    
+<table width="50%">
+    <h2>Welcome ,<%= user.name %></h2>
+
+    <tr>
+        <td><img src="userImages/<%= user.image %>" width="100px" height="100px" alt="<%= user.image %>"></td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><%= user.email %></td>
+    </tr>
+    <tr>
+        <td>Mobile</td>
+        <td><%= user.mobile %></td>
+    </tr>
+    <tr>
+        <td>Verified</td>
+        <td>
+            <% if(user.is_verified == 1){
+                %>
+                <P>Verified</P>
+                <%
+            }
+           %>
+        </td>
+    </tr>
+</table>
+
+<a style="background-color:rgb(53, 14, 224);border-radius: 5px ;text-decoration: none;color: aliceblue;" href="/edit?id=<%= user._id %>">Edit</a></button>
+<br>
+<a style="background-color:rgb(53, 14, 224);border-radius: 5px ;text-decoration: none;color: aliceblue;" href="/logout">Logout</a>
+
+</div>
+
+
+
+
+
+<% include("../layouts/footer.ejs") %>

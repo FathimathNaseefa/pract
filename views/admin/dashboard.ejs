@@ -1,0 +1,89 @@
+
+
+<% include("../layouts/header.ejs") %>
+
+    <link rel="stylesheet" href="../style5.css">
+
+<div class="table-title">
+<h3>Data Table</h3>
+<button type="submit" style="background-color:rgb(10, 10, 11);border-radius: 5px;width:105px"value="Login"><a href="/admin/new-user" style="text-decoration: none;color: aliceblue;">Add New User</a></button>
+
+</div>
+  
+<form >
+  <input style="font-size: 20px" type="text" placeholder="Search user name,email,mobile" name="search">
+  <input style="font-size: 20px" type="submit" value="Search">
+</form>
+<br><br>
+<table class="table-fill">
+  
+
+<tr>
+<th class="text-left">Name</th>
+<th class="text-left">Email</th>
+<th class="text-left">Mobile</th>
+<th class="text-left">Image</th>
+<th class="text-left">Verified</th>
+<th class="text-left">Actions</th>
+</tr>
+<tbody class="table-hover">
+
+<% 
+  if(users.length>0){
+    for(let i=0;i<users.length;i++){
+        %>
+        <tr>
+            <td><%=users[i].name %></td>
+            <td><%=users[i].email %></td>
+            <td><%=users[i].mobile %></td>
+            <td><img src="/userImages/<%=users[i].image %>" alt="<%=users[i].image %>" width="40px" height="40px" style="border-radius: 50%;">
+            <td><%
+                if(users[i].is_verified == 0){
+                    %>
+                
+                    <p>Not Verified</p>
+                  <%
+                }else{
+                    %>
+                <p>Verified</p>
+                <%
+                }
+              %>
+            </td>
+          <td>
+            <button style="background-color: yellow;color: blue;width: 105px;border-radius: 5px;" ><a href="/admin/edit-user?id=<%=users[i]._id %>">Edit</a></button><br>
+            <br><button style="background-color: rgb(226, 7, 7);color: rgb(0, 0, 8);width: 105px;border-radius: 5px;" ><a href="/admin/delete-user?id=<%=users[i]._id %>">Delete</a></button></td>
+        </tr>
+       <%
+    }
+}
+
+  else{
+    %>
+    <tr>
+        <td colspan="5">Users not found</td>
+    </tr>
+    <%
+}
+%>
+<button type="submit" style="background-color:rgb(10, 10, 11);border-radius: 5px;width:105px"value="Login"> <a href="/admin/home" style="text-decoration: none;color: aliceblue;">Go to home</a>
+</tbody>
+
+</table>
+<br>
+<%
+   for(let j=1;j<=totalPages;j++){
+    %>
+    <a href="?pages=<%= j %>"><%= j %></a>
+    <%
+   }
+  %>
+
+  
+
+  </body>
+
+  
+
+
+<% include("../layouts/footer.ejs") %>

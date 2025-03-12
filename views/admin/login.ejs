@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="./style2.css" >
+<% include("../layouts/header.ejs") %>
+<div class="form-container">
+<h1>Admin Login</h1>
+<br>
+
+
+<%
+  if(typeof message !== "undefined"){
+    %>
+    <p  style="color:rgb(241, 49, 6)";><%= message %></p>
+    <%
+}
+
+%>
+<br>
+<form action="" method="POST">
+     <label for="email">Email:</label>
+    <input type="email" name="email" required placeholder="Enter email">
+    <br><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" required placeholder="Enter password">
+    <br><br>
+    <button type="submit" class="btn" value="Login">Login</button>
+    <br><br>
+    <a href="/admin/forget">Forget Password</a>
+</form>
+</div>
+
+
+
+
+
+<% include("../layouts/footer.ejs") %>
